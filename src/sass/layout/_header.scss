@@ -2,6 +2,7 @@
   &__container {
     outline: 1px solid blue;
     display: flex;
+    align-items: center;
   }
 }
 .container {
@@ -21,10 +22,13 @@
   &__thumb {
     outline: 1px solid tomato;
     display: flex;
+    align-items: center;
+    margin-left: auto;
   }
   &__button {
     margin: 0;
     padding: 0;
+    z-index: 200;
   }
 }
 .modal {
@@ -39,4 +43,8 @@
 
   &__arrow {
   }
+}
+.magic-menu {
+  display: flex;
+  justify-content: center;
 }
