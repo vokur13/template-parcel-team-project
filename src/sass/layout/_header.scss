@@ -1,0 +1,42 @@
+.header {
+  &__container {
+    outline: 1px solid blue;
+    display: flex;
+  }
+}
+.container {
+}
+.logo {
+  &__icon {
+  }
+}
+.animate {
+  &__animated {
+  }
+
+  &__bounce {
+  }
+}
+.nav {
+  &__thumb {
+    outline: 1px solid tomato;
+    display: flex;
+  }
+  &__button {
+    margin: 0;
+    padding: 0;
+  }
+}
+.modal {
+  &__button {
+  }
+
+  &__title {
+  }
+
+  &__env {
+  }
+
+  &__arrow {
+  }
+}
