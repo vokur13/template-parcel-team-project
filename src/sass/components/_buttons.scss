@@ -1,0 +1,9 @@
+.button {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(30 / 16);
+
+  @include centeredFlex();
+  color: getColor('bg-prime');
+  background-color: getColor('accent');
+}

@@ -57,3 +57,75 @@
     }
   }
 }
+
+//
+
+// Button Mixin
+
+@mixin centeredFlex($type: flex) {
+  display: $type;
+
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
+
+  outline: 0;
+  outline-offset: 0;
+  border: none;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+// Icons Mixin
+
+@mixin generateIcons($iconList) {
+  @each $iconName in $iconList {
+    &--#{$iconName} {
+      background-image: url('../images/svg/icons/#{$iconName}.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+/// Mixin to manage responsive breakpoints
+/// @author Kitty Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Fonts Mixin
+
+@mixin font(
+  $f-wgh: 400,
+  $f-sze: 14px,
+  $l-hgh: 24px,
+  $l-spc: 0.03em,
+  $clr: getColor('primary-text')
+) {
+  font-weight: $f-wgh;
+  font-size: $f-sze;
+  line-height: calc($l-hgh/$f-sze);
+  letter-spacing: $l-spc;
+  color: $clr;
+}
