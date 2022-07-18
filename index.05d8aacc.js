@@ -1,2 +1,0 @@
-!function(){console.clear();[].slice.call(document.querySelectorAll(".nav-expand")).forEach((function(e){e.querySelector(".nav-link").addEventListener("click",(function(){return e.classList.add("active")})),e.querySelector(".nav-back-link").addEventListener("click",(function(){return e.classList.remove("active")}))})),document.getElementById("ham").addEventListener("click",(function(){document.body.classList.toggle("nav-is-toggled")}))}();
-//# sourceMappingURL=index.05d8aacc.js.map
