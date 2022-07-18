@@ -6,38 +6,55 @@
       </svg>
     </a>
 
-    <!-- Nav button -->
-    <button type="button" class="button nav__button">
-      <svg class="nav__toggle" width="20" height="12">
+    <!-- Nav burger button -->
+    <button
+      type="button"
+      class="button nav__button nav__button--burger"
+      data-menu-open
+    >
+      <svg class="nav__icon nav__icon--burger" width="20" height="12">
         <use href="/src/images/svg/icons.svg#burger"></use>
-        <use href="/src/images/svg/icons.svg#close"></use>
       </svg>
     </button>
 
     <!-- Nav thumb -->
-    <div class="nav__thumb">
-      <!-- Modal button -->
-      <button type="button" class="modal__button is-hidden">
-        <span class="modal__title">Buy now</span>
-        <span class="modal__env">
-          <svg class="modal__arrow" width="6" height="8">
-            <use href="/src/images/svg/icons.svg#arrow-right"></use>
-          </svg>
-        </span>
-      </button>
+    <div class="nav__thumb is-hidden" data-nav-thumb>
+      <!-- Modal button & mobile menu back -->
+      <div class="nav__env">
+        <!-- Modal button -->
+        <button type="button" class="button modal__button">
+          <span class="modal__title">Buy now</span>
+          <span class="modal__env">
+            <svg class="modal__arrow" width="6" height="8">
+              <use href="/src/images/svg/icons.svg#arrow-right"></use>
+            </svg>
+          </span>
+        </button>
 
-      <!-- Nav list -->
-      <ul class="nav__list">
-        <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
-        <li class="nav__item"><a href="#" class="nav__link">About us</a></li>
-        <li class="nav__item">
-          <a href="#" class="nav__link">How it's made?</a>
-        </li>
-        <li class="nav__item">
-          <a href="#" class="nav__link">Our products</a>
-        </li>
-        <li class="nav__item"><a href="#" class="nav__link">Contacts</a></li>
-      </ul>
+        <!-- Nav close button -->
+        <button
+          type="button"
+          class="button nav__button nav__button--close"
+          data-menu-close
+        >
+          <svg class="nav__icon nav__icon--close" width="14" height="14">
+            <use href="/src/images/svg/icons.svg#close"></use>
+          </svg>
+        </button>
+
+        <!-- Nav list -->
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">About us</a></li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">How it's made?</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Our products</a>
+          </li>
+          <li class="nav__item"><a href="#" class="nav__link">Contacts</a></li>
+        </ul>
+      </div>
     </div>
   </container>
 </header>
