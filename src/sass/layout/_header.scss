@@ -30,6 +30,9 @@
     padding: 0;
     z-index: 200;
   }
+  &__list {
+    @extend %list;
+  }
 }
 .modal {
   &__button {
@@ -43,8 +46,4 @@
 
   &__arrow {
   }
-}
-.magic-menu {
-  display: flex;
-  justify-content: center;
 }
