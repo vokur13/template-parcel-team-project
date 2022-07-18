@@ -1,0 +1,2 @@
+const e={openModalBtn:document.querySelector("[data-menu-open]"),closeModalBtn:document.querySelector("[data-menu-close]"),backdrop:document.querySelector("[data-nav-thumb]")};function o(){document.body.classList.toggle("menu-open"),e.backdrop.classList.toggle("is-hidden")}e.openModalBtn.addEventListener("click",o),e.closeModalBtn.addEventListener("click",o),e.backdrop.addEventListener("click",(function(){console.log("Это клик в бекдроп")}));
+//# sourceMappingURL=index.8b21df6d.js.map
