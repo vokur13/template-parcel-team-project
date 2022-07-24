@@ -72,12 +72,11 @@
       }
     }
     @include mq(tablet) {
-      display: flex;
+      display: block;
       flex-direction: row-reverse;
       margin-right: 0;
     }
     @include mq(desktop) {
-      display: flex;
       width: 100%;
     }
   }

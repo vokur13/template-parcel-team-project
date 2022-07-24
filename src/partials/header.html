@@ -1,5 +1,6 @@
 <header class="header">
   <container class="container header__container">
+    <!-- Logo -->
     <a href="/src/index.html" class="logo animate__animated animate__bounce">
       <svg class="logo__icon" width="199" height="50">
         <use href="/src/images/svg/icons.svg#logo"></use>
@@ -19,10 +20,14 @@
 
     <!-- Nav thumb -->
     <div class="nav__thumb" data-nav-thumb>
-      <!-- Modal button & mobile menu back -->
-      <div class="nav__env" data-nav-env>
+      <!-- Modal button & mobile menu backdrop -->
+      <div class="nav__env animate__translate" data-nav-env>
         <!-- Modal button -->
-        <button type="button" class="button modal__button" data-mdl-btn>
+        <button
+          type="button"
+          class="button modal__button js-open-modal"
+          data-modal
+        >
           <span class="modal__title">Buy now</span>
           <span class="modal__env">
             <svg class="modal__arrow" width="6" height="8">

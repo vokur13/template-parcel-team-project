@@ -1,0 +1,51 @@
+// animate translate
+.animate__translate {
+  animation-name: animateTranslate;
+  animation-duration: 250ms;
+  animation-timing-function: $timing-func;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-play-state: running;
+  animation-delay: 0;
+  animation-fill-mode: forwards;
+}
+@keyframes animateTranslate {
+  0% {
+    transform: translateX(101%);
+  }
+  25% {
+    transform: translateX(75%);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  75% {
+    transform: translateX(25%);
+  }
+  100% {
+    right: 0;
+  }
+}
+
+// animate opacity
+.animate__opacity {
+  animation-name: animateOpacity;
+  animation-duration: 2500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-play-state: running;
+  animation-delay: 0;
+  animation-fill-mode: forwards;
+}
+@keyframes animateOpacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
