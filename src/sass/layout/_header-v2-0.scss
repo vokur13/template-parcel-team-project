@@ -1,39 +1,50 @@
 .header {
   outline: 1px solid tomato;
   width: 100%;
-  padding-top: 8px;
   background-color: $color-milkshakes;
   position: fixed;
   &__container {
     outline: 1px solid red;
+    padding-top: 8px;
     display: flex;
     align-items: center;
+    background-color: $color-secondary-light;
   }
 }
 
 .logo {
   height: 50px;
   &__icon {
+    color: $color-accent;
+    fill: currentColor;
   }
 }
 .button {
 }
 .menu {
   &__button {
+    display: block;
+    padding: 0;
+    border: none;
+    background-color: transparent;
     &--burger {
-      display: block;
       margin-left: auto;
-      padding: 0;
       width: 20px;
-      height: 12px;
-      &:hover {
-        background-color: red;
+      height: 20px;
+
+      .thumb.is-open & {
+        display: none;
       }
     }
     &--close {
-      @include mq(tablet) {
-        display: none;
+      display: none;
+      margin-left: auto;
+      .thumb.is-open & {
+        display: block;
       }
+    }
+    @include mq(desktop) {
+      display: none;
     }
   }
 
@@ -41,15 +52,31 @@
   }
 
   &__icon--burger {
+    color: $color-accent;
+    fill: currentColor;
   }
 
   &__icon--close {
+    color: $bg-body;
+    fill: currentColor;
+    transition-property: fill;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    &:hover,
+    &:focus {
+      fill: $color-accent;
+    }
   }
 }
 .thumb {
   outline: 1px solid green;
+  @include mq(mobile) {
+    display: none;
+  }
+
   &.is-open {
-    position: absolute;
+    display: block;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -58,7 +85,7 @@
     background: rgba(0, 0, 0, 0.2);
   }
   @include mq(tablet) {
-    display: flex;
+    display: block;
     width: 100%;
     //     height: 100%;
   }
@@ -67,6 +94,7 @@
 .envelope {
   background-color: $color-secondary-light;
   width: 250px;
+  //   display: block;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -75,49 +103,110 @@
   transition: transform $transition-duration $transition-animation;
 
   .thumb.is-open & {
+    padding: 20px;
     filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
     transform: translateX(0);
-    @include mq(mobile) {
-      width: 250px;
-      height: 100vh;
-    }
-    @include mq(tablet) {
-      width: 254px;
-    }
+    // @include mq(mobile) {
+    //   width: 250px;
+    //         height: 100vh;
+    // }
   }
+
   @include mq(tablet) {
     position: static;
-    display: block;
-    flex-direction: row-reverse;
-    margin-right: 0;
+    //     display: block;
+    //     margin-right: 0;
     height: fit-content;
+    width: fit-content;
+    background-color: transparent;
+    //     transform: translateX(101%);
+    //     transition: transform $transition-duration $transition-animation;
+    .thumb.is-open & {
+      display: block;
+      width: 254px;
+      height: 100vh;
+      position: absolute;
+      //       top: 0;
+      //       right: 0;
+      background-color: $color-secondary-light;
+      //       transform: translateX(0);
+      //       transform: translateX(101%);
+      //       transition: transform $transition-duration $transition-animation;
+    }
+  }
+  @include mq(desktop) {
+    display: flex;
+    flex-direction: row-reverse;
   }
 }
 .modal {
   &__button {
     //     display: none;
-    display: block;
-    margin: 0;
+    display: flex;
+    margin: 26px auto 19px;
+    justify-content: center;
+    align-items: center;
     padding: 0;
+    width: 209px;
+    height: 44px;
+    background-color: $bg-body;
+    border: none;
+    border-radius: 22px;
+
+    transition-property: background-color;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    &:hover,
+    &:focus {
+      background-color: $color-accent;
+    }
   }
 
   &__thumb {
     display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
   }
 
   &__env {
+    color: $color-accent;
+    margin-right: 16px;
+    transition-property: color;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    .modal__button:hover &,
+    .modal__button:focus & {
+      color: $color-text-lighter;
+    }
   }
 
   &__arrow {
+    color: $color-accent;
+    fill: currentColor;
+    transition-property: fill;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    .modal__button:hover &,
+    .modal__button:focus & {
+      fill: $color-text-lighter;
+    }
   }
 }
 .nav {
   @include mq(tablet) {
     display: none;
+    .thumb.is-open & {
+      display: block;
+    }
+  }
+  @include mq(desktop) {
+    display: flex;
   }
   &__list {
+    @include mq(desktop) {
+      display: flex;
+    }
   }
 
   &__item {
@@ -125,5 +214,21 @@
   }
 
   &__link {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    color: $color-text-lighter;
+    transition-property: color;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    &:hover,
+    &:focus {
+      color: $color-accent;
+    }
   }
 }
