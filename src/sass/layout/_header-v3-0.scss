@@ -1,0 +1,234 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: $color-milkshakes;
+  &__container {
+    outline: 1px solid blue;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: $color-secondary-light;
+    @include mq(tablet) {
+      padding-top: 32px;
+    }
+    @include mq(desktop) {
+      padding-top: 37px;
+    }
+  }
+}
+.container {
+}
+.logo {
+  width: 199px;
+  height: 50px;
+  &__icon {
+    color: $color-accent;
+    fill: currentColor;
+  }
+}
+.button {
+}
+.menu {
+  &__button {
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    @include mq(desktop) {
+      display: none;
+    }
+  }
+
+  &__button--burger {
+    margin-left: auto;
+    body.menu-open & {
+      display: none;
+    }
+  }
+
+  &__icon {
+  }
+
+  &__icon--burger {
+    color: $color-accent;
+    fill: currentColor;
+  }
+
+  &__button--close {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 26px;
+    margin-right: 20px;
+    color: $bg-body;
+    fill: currentColor;
+    transition-property: fill;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    &:hover,
+    &:focus {
+      fill: $color-accent;
+    }
+  }
+
+  &__icon--close {
+  }
+}
+.modal {
+  &__button {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: $color-accent;
+
+    background: $bg-body;
+    border-radius: 22px;
+    border: none;
+
+    transition-property: color, background-color;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+
+    &:hover,
+    &:focus {
+      background-color: $color-accent;
+      color: $color-text-lighter;
+    }
+  }
+
+  &__button--one {
+    display: none;
+    @include mq(tablet) {
+      width: 209px;
+      height: 44px;
+      margin-left: 32px;
+      display: block;
+      body.menu-open & {
+        display: none;
+      }
+    }
+    @include mq(desktop) {
+      display: none;
+    }
+  }
+
+  &__thumb {
+  }
+
+  &__env {
+    margin-right: 16px;
+  }
+
+  &__arrow {
+    color: $color-accent;
+    fill: currentColor;
+    transition-property: fill;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+    .modal__button:hover &,
+    .modal__button:focus & {
+      fill: $color-text-lighter;
+    }
+  }
+
+  &__button--two {
+    width: 209px;
+    height: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 19px;
+  }
+  @include mq(tablet) {
+    width: 186px;
+    height: 44px;
+  }
+}
+.thumb {
+  opacity: 0;
+  pointer-events: none;
+  &.is-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    pointer-events: initial;
+  }
+  @include mq(desktop) {
+    position: static;
+    opacity: 1;
+  }
+}
+
+.env {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(101%);
+  transition-property: transform;
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-animation;
+
+  .thumb.is-open & {
+    display: block;
+    width: 250px;
+    height: 100vh;
+    background: $color-secondary-darker;
+    filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
+    transform: translateX(0%);
+  }
+  @include mq(desktop) {
+    position: static;
+    display: flex;
+  }
+}
+
+.nav {
+  &__list {
+    @extend %list;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    border-top: 1px solid $color-border-secondary;
+    &:last-child {
+      border-bottom: 1px solid $color-border-secondary;
+    }
+  }
+
+  &__link {
+    margin-left: 20px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    color: $color-text-lighter;
+    transition-property: color;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-animation;
+
+    &:hover,
+    &:focus {
+      color: $color-accent;
+    }
+  }
+}
