@@ -51,19 +51,19 @@ $timing-func: cubic-bezier(0.4, 0, 0.2, 1);
 
 // Breakpoints
 
-$mobile: 480px;
-$tablet: 768px;
+$mobile: 320px;
+$tablet: 767px;
 $desktop: 1200px;
 
 $breakpoints: (
   'mobile': (
-    min-width: $mobile,
+    max-width: $mobile,
   ),
   'tablet': (
-    min-width: $tablet,
+    max-width: $tablet,
   ),
   'desktop': (
-    min-width: $desktop,
+    max-width: $desktop,
   ),
 ) !default;
 

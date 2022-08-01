@@ -1,4 +1,17 @@
 // GENERAL CSS SETTINGS
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
 
 ::placeholder {
   color: $color-text-light;
