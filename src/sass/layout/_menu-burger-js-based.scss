@@ -1,0 +1,251 @@
+.wrapper {
+  min-height: 100%;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #912105;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 5;
+    width: 199px;
+    height: 50px;
+  }
+
+  &__menu {
+  }
+}
+.menu {
+  &__icon {
+    display: none;
+    @include respond-to('tablet') {
+      z-index: 5;
+      display: block;
+      position: relative;
+      width: 20px;
+      height: 12px;
+      cursor: pointer;
+      & span,
+      &::before,
+      &:after {
+        position: absolute;
+        left: 0;
+        height: 15%;
+        width: 100%;
+        transition: all 300ms ease 0ms;
+        background-color: #fff;
+      }
+      &::before,
+      &:after {
+        content: '';
+      }
+      &::before {
+        top: 0;
+      }
+      &:after {
+        bottom: 0;
+      }
+      & span {
+        top: 50%;
+        transform: scale(1) translate(0, -50%);
+      }
+    }
+  }
+
+  &__body {
+    @include respond-to('tablet') {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 100px 30px 30px 30px;
+      transition: left 300ms ease 0ms;
+      overflow: auto;
+    }
+  }
+
+  &__list {
+    @extend %list;
+
+    @media (min-width: 767px) {
+      display: flex;
+      align-items: center;
+      body._pc & {
+        &:hover {
+          .menu__sub-list {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0px, 0px);
+            pointer-events: all;
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin: 0 0 0 20px;
+    body._touch & {
+      display: flex;
+      align-items: center;
+    }
+    body._touch & {
+      &._active {
+        .menu__sub-list {
+          opacity: 1;
+          visibility: visible;
+          transform: translate(0px, 0px);
+          pointer-events: all;
+        }
+        .menu__arrow {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    @media (min-width: 767px) {
+      padding: 10px 0;
+    }
+    @include respond-to('tablet') {
+      flex-wrap: wrap;
+      margin: 0 0 30px 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    color: $color-text-lighter;
+    font-size: 18px;
+    transition: all 300ms ease 0ms;
+    body._touch & {
+      flex: 1 1 auto;
+    }
+    &:hover,
+    &:focus {
+      //       color: $color-accent;
+      text-decoration: underline;
+    }
+    @include respond-to('tablet') {
+      font-size: 24px;
+    }
+  }
+
+  &__sub-list {
+    @extend %list;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #000;
+    padding: 15px;
+    min-width: 200px;
+    @media (min-width: 767px) {
+      transform: translate(0, 7%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 300ms ease 0ms;
+    }
+    @include respond-to('tablet') {
+      position: relative;
+      background-color: #fff;
+      flex: 1 1 100%;
+      margin: 20px 0 0 0;
+      display: none;
+      .menu__item._active & {
+        display: block;
+      }
+    }
+  }
+
+  &__sub-item {
+    margin: 0 0 10px 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__sub-link {
+    color: $color-text-lighter;
+    transition: all 300ms ease 0ms;
+    &:hover,
+    &:focus {
+      //       color: $color-accent;
+      text-decoration: underline;
+    }
+    @include respond-to('tablet') {
+      font-size: 20px;
+      color: #000;
+    }
+  }
+  &__arrow {
+    display: none;
+    body._touch & {
+      display: block;
+      width: 0;
+      height: 0;
+      margin: 0 0 0 5px;
+      transition: transform 300ms ease 0ms;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 10px solid #fff;
+    }
+  }
+}
+
+.page {
+  padding: 90px 0 30px 0;
+  &__section {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__section--1 {
+    background-color: #794f45;
+  }
+
+  &__title {
+    font-size: 40px;
+    margin: 0 0 20px 0;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    & p {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &__section--2 {
+    background-color: #77608d;
+  }
+
+  &__sub-title {
+    font-size: 30px;
+    margin: 0 0 20px 0;
+  }
+  &__section--3 {
+    background-color: #7a956b;
+  }
+
+  &__sub-title {
+  }
+}
